@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171914">
+  <meta name="description" content="FORMA — концепт сайта бюро интерьеров. Жилые и общественные пространства, проекты и подход к работе.">
+  <title>FORMA — бюро интерьеров</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="header wrap">
+    <a class="brand" href="#" aria-label="FORMA — главная">FORMA<span>.</span></a>
+    <nav aria-label="Основное меню">
+      <a href="#projects">Проекты</a>
+      <a href="#approach">Подход</a>
+    </nav>
+    <a class="outline" href="#contact">Обсудить проект</a>
+  </header>
+
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-image"></div>
+      <div class="hero-content">
+        <p class="eyebrow"><span></span> Независимое бюро интерьеров</p>
+        <h1 id="hero-title">Пространство<br>в вашем ритме<span>.</span></h1>
+        <div class="hero-bottom">
+          <p>Проектируем жилые и общественные интерьеры. От первой планировки до света, материалов и мебели.</p>
+          <a class="pill" href="#projects">Смотреть проекты</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio wrap" id="projects" aria-labelledby="work-title">
+      <div class="section-top">
+        <div>
+          <p class="eyebrow">Портфолио бюро</p>
+          <h2 id="work-title">Избранные проекты</h2>
+        </div>
+        <div class="filters" aria-label="Категория проектов">
+          <button type="button" data-filter="all" aria-pressed="true">Все</button>
+          <button type="button" data-filter="home" aria-pressed="false">Жилые</button>
+          <button type="button" data-filter="public" aria-pressed="false">Общественные</button>
+        </div>
+      </div>
+      <div class="project-grid">
+        <article class="project" data-category="home">
+          <button type="button" data-project="quiet" aria-label="Подробнее о проекте Тихий свет">
+            <span class="project-image quiet"></span>
+            <span class="project-title">Тихий свет <span aria-hidden="true">+</span></span>
+            <span class="project-type">Квартира · 96 м²</span>
+          </button>
+        </article>
+        <article class="project" data-category="public">
+          <button type="button" data-project="sreda" aria-label="Подробнее о проекте Среда">
+            <span class="project-image sreda"></span>
+            <span class="project-title">Среда <span aria-hidden="true">+</span></span>
+            <span class="project-type">Винный бар · 124 м²</span>
+          </button>
+        </article>
+        <article class="project" data-category="home">
+          <button type="button" data-project="shore" aria-label="Подробнее о проекте Линия берега">
+            <span class="project-image shore"></span>
+            <span class="project-title">Линия берега <span aria-hidden="true">+</span></span>
+            <span class="project-type">Загородный дом · 210 м²</span>
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <section class="approach" id="approach">
+      <div class="wrap approach-inner">
+        <div>
+          <p class="eyebrow">Подход к работе</p>
+          <h2>От планировки<br>до деталей.</h2>
+        </div>
+        <div class="steps">
+          <details open><summary>Знакомство и планировка</summary><p>Разбираем привычки, сценарии и ограничения помещения. Сравниваем варианты планировки и выбираем тот, который подходит вашей задаче.</p></details>
+          <details><summary>Концепция и материалы</summary><p>Собираем палитру, подбираем материалы и освещение. Показываем, как интерьер будет выглядеть при дневном и вечернем свете.</p></details>
+          <details><summary>Чертежи и комплектация</summary><p>Готовим чертежи для строителей и списки отделки, мебели и светильников с размерами и артикулами.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact wrap" id="contact">
+      <div>
+        <p class="eyebrow">Начать проект</p>
+        <h2>Какое пространство<br>вы задумали?</h2>
+        <p>Соберите короткий бриф с задачей, площадью и сроками. Его можно скачать и отправить дизайнеру.</p>
+      </div>
+      <button type="button" class="pill" id="open-brief">Составить бриф</button>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <a class="brand" href="#" aria-label="FORMA — наверх">FORMA<span>.</span></a>
+    <p>Демонстрационный сайт · Проекты и изображения иллюстративны</p>
+  </footer>
+
+  <dialog id="project-dialog" aria-labelledby="project-name">
+    <button type="button" class="close" data-close aria-label="Закрыть">×</button>
+    <div class="project-image dialog-image"></div>
+    <div class="dialog-body">
+      <p class="eyebrow" id="project-kind"></p>
+      <h2 id="project-name"></h2>
+      <p id="project-description"></p>
+    </div>
+  </dialog>
+
+  <dialog id="brief-dialog" aria-labelledby="brief-title">
+    <button type="button" class="close" data-close aria-label="Закрыть">×</button>
+    <div class="dialog-body">
+      <p class="eyebrow">Бриф для дизайн-проекта</p>
+      <h2 id="brief-title">Расскажите о задаче</h2>
+      <form id="brief-form">
+        <label>Тип помещения
+          <select name="space" required>
+            <option value="">Выберите тип</option>
+            <option>Квартира</option>
+            <option>Загородный дом</option>
+            <option>Общественное пространство</option>
+          </select>
+        </label>
+        <label>Площадь, м²<input name="area" type="number" min="1" max="100000" required></label>
+        <label>Желаемые сроки<input name="timing" maxlength="100" placeholder="Например, начать в марте"></label>
+        <label>Что нужно сделать<textarea name="notes" rows="3" maxlength="2000" required></textarea></label>
+        <button type="submit" class="pill">Скачать бриф</button>
+        <p id="brief-status" role="status"></p>
+      </form>
+    </div>
+  </dialog>
+</body>
+</html>
